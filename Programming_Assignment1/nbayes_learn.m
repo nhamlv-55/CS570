@@ -44,9 +44,9 @@ for i=1:nclasses
             %estimate prob(variable j = k | class i)
             %use the factored posterior to prevent zerocount
             Njc=size(find(rows==k), 1);
-            if k==1
-                fprintf('the number of time when C[%d][%d] turn on %d.\n', j,i, Njc);
-            end
+%             if k==1
+%                 fprintf('the number of time when C[%d][%d] turn on %d.\n', j,i, Njc);
+%             end
             params(j).cprobs(k,i) = (Njc + pseudoCount) / (Nc+ 2*pseudoCount);
         end
     end

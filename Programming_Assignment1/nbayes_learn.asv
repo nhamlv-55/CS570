@@ -28,8 +28,8 @@ pseudoCount=1;
 % Estimate class probabilities and conditional probabilities  
 for i=1:nclasses
     index = trainlabels==i; 
-    fprintf('Print the index table');
-    disp(index);
+    %fprintf('Print the index table');
+    %disp(index);
     Nc=sum(index);
     %the MLE for the class prior
     params(1).classprobs(i) = Nc/N;  % estimate the probability of class i 
@@ -43,10 +43,11 @@ for i=1:nclasses
         for k=1:2;
             %estimate prob(variable j = k | class i)
             %use the factored posterior to prevent zerocount
-            
-                        %size(find(rows==k))
-            Njc=size(find(rows==k), 1)
-            params(j).cprobs(k,i) = (Njc + pseudoCount) / (Nc+ 2*pseudoCount);
+            Njc=size(find(rows==k), 1);
+%             if k==1
+%                 fprintf('the number of time when C[%d][%d] turn on %d.\n', j,i, Njc);
+%             end
+            params(j).cprobs(k,i) = (Njc + pseudoCount) / (Nc+ 1);
         end
     end
 end
