@@ -26,32 +26,31 @@ nclasses = 2;
 [n, d] = size(traindata);
 
 % Estimate class probabilities and conditional probabilities  
-% for i=1:nclasses
-%     index = trainlabels==i; 
-%     fprintf('%d', index);
-%     params(1).classprobs(i) = sum(index)/n;  % estimate the probability of class i 
-%     %......
-%     for j = 1:d 
-%         %.......
-%         fprintf('%d', 1);
-%         for k=1:2; 
-%             %.......
-%             % estimate prob(variable j = k | class i)
-%             %params(j).cprobs(k,i) = ..........
-%         end
-%     end
-% end
-%  
-% % Estimate the probabilities p(x_j = value_k)
-% for j = 1:d 
-%         %..............
-%         for k=1:2; 
-%             %......
-%             % estimate  prob(variable x_j = k)
-%             %params(j).mprobs(k) = ........;
-%         end
-%   end
-%  
+for i=1:nclasses
+    index = trainlabels==i; 
+    fprintf('%d', index)
+    params(1).classprobs(i) = sum(index)/n;  % estimate the probability of class i 
+    ......
+    for j = 1:d 
+        .......
+        for k=1:2; 
+            .......
+            % estimate prob(variable j = k | class i)
+            params(j).cprobs(k,i) = ..........
+        end
+    end
+end
+ 
+% Estimate the probabilities p(x_j = value_k)
+for j = 1:d 
+        ..............
+        for k=1:2; 
+            ......
+            % estimate  prob(variable x_j = k)
+            params(j).mprobs(k) = ........;
+        end
+  end
+ 
 
   
      

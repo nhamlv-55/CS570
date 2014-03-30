@@ -4,10 +4,14 @@ clear ; close all; clc
 %% ======================= Part 2: Plotting =======================
 feature = load('spam_features.txt');
 label = load('spam_labels.txt');
-X = feature(1:10, :); 
-y = label(1:10, :);
+X = feature(1:1000, :); 
+y = label(1:1000, :);
 m = length(y); % number of training examples
-%fprintf('%d\n', m);
+fprintf('%d', m);
+% Plot Data
+% Note: You have to complete the code in plotData.m
 
-params = nbayes_learn(X, y)
-params(1).classprobs(2)
+fprintf('Program paused. Press enter to continue.\n');
+pause;
+
+params = nbayes_learn(X,  y);
